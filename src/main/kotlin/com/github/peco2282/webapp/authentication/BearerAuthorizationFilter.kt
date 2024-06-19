@@ -4,7 +4,6 @@ import com.auth0.jwt.JWT
 import com.github.peco2282.webapp.HeaderException
 import com.github.peco2282.webapp.ILoggable
 import jakarta.servlet.FilterChain
-import jakarta.servlet.ServletException
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.security.authentication.AuthenticationManager
@@ -44,8 +43,7 @@ class BearerAuthorizationFilter(manager: AuthenticationManager) : BearerTokenAut
         filterChain.doFilter(request, response)
 
       }
-    }
-    else super.doFilterInternal(request, response, filterChain)
+    } else super.doFilterInternal(request, response, filterChain)
 //    else filterChain.doFilter(request, response)
   }
 }

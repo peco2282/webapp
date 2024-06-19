@@ -6,14 +6,13 @@ import com.github.peco2282.webapp.ILoggable
 import com.github.peco2282.webapp.trace
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
-import org.springframework.format.annotation.DateTimeFormat.ISO
 import org.springframework.http.HttpStatus
 import org.springframework.security.core.Authentication
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler
 import java.util.*
 
 
-class SuccessHandler: AuthenticationSuccessHandler, ILoggable {
+class SuccessHandler : AuthenticationSuccessHandler, ILoggable {
   /**
    * Called when a mapper has been successfully authenticated.
    * @param request the request which caused the successful authentication

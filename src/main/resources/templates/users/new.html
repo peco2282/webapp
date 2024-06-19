@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 <form th:action="@{/users/create}" th:method="post">
-<!--    <p> </p>-->
-    <label>
-        name:
-        <input th:name="name" type="text">
-    </label>
-<!--    <p>pass</p>-->
-    <label>
-        pass:
-        <input th:name="password" type="password">
-    </label>
-<!--    <p th:name="role" th:value="0">Role: 0</p>-->
-    <button th:method="post" th:action="@{/users/create}">submit</button>
+  <!--    <p> </p>-->
+  <label>
+    name:
+    <input th:name="name" type="text">
+  </label>
+  <!--    <p>pass</p>-->
+  <label>
+    pass:
+    <input th:name="password" type="password">
+  </label>
+  <!--    <p th:name="role" th:value="0">Role: 0</p>-->
+  <button th:action="@{/users/create}" th:method="post">submit</button>
 </form>
 </body>
 </html>

@@ -15,8 +15,8 @@ public enum Role {
   STAFF,
   USER,
   VISITOR;
-  public static final Role[] FROM_VISITOR = new Role[] {ADMIN, MAINTENER, STAFF, USER, VISITOR};
-  public static final Role[] FROM_USER = new Role[] {ADMIN, MAINTENER, STAFF, USER};
+  public static final Role[] FROM_VISITOR = new Role[]{ADMIN, MAINTENER, STAFF, USER, VISITOR};
+  public static final Role[] FROM_USER = new Role[]{ADMIN, MAINTENER, STAFF, USER};
   public static final Role[] FROM_STAFF = new Role[]{ADMIN, MAINTENER, STAFF};
   public static final Role[] FROM_MAINTENER = new Role[]{ADMIN, MAINTENER};
   public static final Role[] FROM_ADMIN = new Role[]{ADMIN};

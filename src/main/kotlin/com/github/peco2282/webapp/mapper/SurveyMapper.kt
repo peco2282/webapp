@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
 
 @Mapper
-interface SurveyMapper : SqlMapper<Survey>{
+interface SurveyMapper : SqlMapper<Survey> {
   @Select("SELECT * FROM survey")
   override fun selectAll(): List<Survey>
 

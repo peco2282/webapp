@@ -15,14 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping
 @RequestMapping("/users")
 class UserRouteController(private val mapper: UserMapper) {
   val logger = thisLogger()
+
   @GetMapping("/create")
   fun create(model: Model): String {
     return "users/new"
   }
 
   @PostMapping("/create")
-  fun newUser(@Validated form: UserForm, model: Model) : String {
-    val user = form.convert(mapper.selectByName(form.name)?: User())
+  fun newUser(@Validated form: UserForm, model: Model): String {
+    val user = form.convert(mapper.selectByName(form.name) ?: User())
     logger.trace(user.toString())
     mapper.addUser(user)
     model.addAttribute("user", user)
@@ -31,7 +32,7 @@ class UserRouteController(private val mapper: UserMapper) {
 
   @GetMapping("/update/{id}")
   fun update(@PathVariable id: String, model: Model): String {
-    val user = mapper.selectById(id)?:apply {
+    val user = mapper.selectById(id) ?: apply {
       model.addAttribute(ERROR, "USER NOT FOUND")
       return "error/404"
     }

@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
-class WebAppConfig: WebMvcConfigurer {
+class WebAppConfig : WebMvcConfigurer {
   override fun addViewControllers(registry: ViewControllerRegistry) {
     registry.addViewController("/home").setViewName("home");
     registry.addViewController("/").setViewName("home");

@@ -4,9 +4,10 @@ import com.github.peco2282.webapp.entity.Vote
 import org.apache.ibatis.annotations.*
 
 @Mapper
-interface VoteMapper: SqlMapper<Vote> {
+interface VoteMapper : SqlMapper<Vote> {
   @Select("SELECT * FROM web_app.vote")
   override fun selectAll(): List<Vote>
+
   @Insert("INSERT INTO web_app.vote(title, description, choices) VALUE (#{title}, #{description}, #{choices})")
   fun addVote(vote: Vote)
 

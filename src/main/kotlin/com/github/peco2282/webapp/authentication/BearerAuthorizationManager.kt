@@ -6,7 +6,7 @@ import org.springframework.security.core.Authentication
 import org.springframework.security.web.access.intercept.RequestAuthorizationContext
 import java.util.function.Supplier
 
-class BearerAuthorizationManager:  AuthorizationManager<RequestAuthorizationContext> {
+class BearerAuthorizationManager : AuthorizationManager<RequestAuthorizationContext> {
   /**
    * Determines if access is granted for a specific authentication and object.
    * @param authentication the [Supplier] of the [Authentication] to check

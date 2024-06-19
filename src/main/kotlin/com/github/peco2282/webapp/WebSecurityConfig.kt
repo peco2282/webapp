@@ -2,10 +2,6 @@ package com.github.peco2282.webapp
 
 import com.github.peco2282.webapp.authentication.*
 import com.github.peco2282.webapp.mapper.UserMapper
-import jakarta.servlet.Filter
-import jakarta.servlet.FilterChain
-import jakarta.servlet.http.HttpServletRequest
-import jakarta.servlet.http.HttpServletResponse
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -20,8 +16,6 @@ import org.springframework.security.oauth2.core.*
 import org.springframework.security.oauth2.jwt.*
 import org.springframework.security.provisioning.InMemoryUserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
-import org.springframework.security.web.util.matcher.RequestMatcher
-import org.springframework.web.filter.OncePerRequestFilter
 
 typealias WebUser = org.springframework.security.core.userdetails.User
 

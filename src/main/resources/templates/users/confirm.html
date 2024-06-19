@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 <div th:if="${user}!=null">
-    <p th:text="|NAME     :${user.name}|"></p>
-    <p th:text="|PASSWORD :${user.password}|"></p>
-    <p th:text="|ROLE     :${user.roleAsString()}|"></p>
+  <p th:text="|NAME     :${user.name}|"></p>
+  <p th:text="|PASSWORD :${user.password}|"></p>
+  <p th:text="|ROLE     :${user.roleAsString()}|"></p>
 </div>
 </body>
 </html>

@@ -4,7 +4,7 @@ import com.github.peco2282.webapp.entity.User
 import org.apache.ibatis.annotations.*
 
 @Mapper
-interface UserMapper: SqlMapper<User> {
+interface UserMapper : SqlMapper<User> {
   @Select("SELECT * FROM web_app.user")
   override fun selectAll(): List<User>
 

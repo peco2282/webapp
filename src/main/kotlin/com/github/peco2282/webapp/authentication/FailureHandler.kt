@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.security.core.AuthenticationException
 import org.springframework.security.web.authentication.AuthenticationFailureHandler
 
-class FailureHandler: AuthenticationFailureHandler {
+class FailureHandler : AuthenticationFailureHandler {
   /**
    * Called when an authentication attempt fails.
    * @param request the request during which the authentication attempt occurred.

@@ -8,21 +8,19 @@ import lombok.ToString;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringJoiner;
 
 @Entity
 @Getter
 @Setter
 @ToString
 public class Vote implements IEntity<Vote> {
+  public static final String CHOICE_SEPARATOR = ",";
   @Id
   public long id;
   public String title;
   public String description;
   @ToString.Exclude
   public String choices;
-
-  public static final String CHOICE_SEPARATOR = ",";
 
   @ToString.Include(name = "choices")
   public List<String> getChoicesToString() {

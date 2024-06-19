@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 <div th:if="user">
-    <p th:text="|current name: ${user.name}|"></p>
-    <label>
-        name
-        <input type="text">
-    </label>
-    <label>
-        password
-        <input type="password">
-        retype
-        <input type="password">
-    </label>
-    <button type="submit" th:action="@{/user/update}">submit</button>
+  <p th:text="|current name: ${user.name}|"></p>
+  <label>
+    name
+    <input type="text">
+  </label>
+  <label>
+    password
+    <input type="password">
+    retype
+    <input type="password">
+  </label>
+  <button th:action="@{/user/update}" type="submit">submit</button>
 </div>
 </body>
 </html>

@@ -1,13 +1,13 @@
 package com.github.peco2282.webapp.form
 
-import com.github.peco2282.webapp.entity.User
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import com.github.peco2282.webapp.entity.Role
+import com.github.peco2282.webapp.entity.User
 import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.Size
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.NotNull
+import jakarta.validation.constraints.Size
 import java.util.*
 
 class UserForm(
@@ -21,7 +21,7 @@ class UserForm(
   @NotEmpty
   @Size(min = 1, max = 10)
   val password: String
-): Form<User> {
+) : Form<User> {
   override fun convert(instance: User): User = instance.apply {
     this.name = this@UserForm.name
     this.password = this@UserForm.password

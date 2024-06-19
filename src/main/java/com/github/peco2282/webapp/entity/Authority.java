@@ -55,6 +55,15 @@ public enum Authority {
     return value;
   }
 
+  public static int roles(Role[] roles) {
+    List<Role> list = Arrays.asList(roles);
+    if (list.contains(Role.ADMIN)) return ALL_AUTHORITY;
+    if (list.contains(Role.MAINTENER)) return CREATE_ROLE + READ_ROLE + UPDATE_ROLE;
+    if (list.contains(Role.STAFF)) return READ_ROLE + UPDATE_ROLE;
+    if (list.contains(Role.USER) || list.contains(Role.VISITOR)) return READ_ROLE;
+    return 0;
+  }
+
   public Role[] roles() {
     return switch (from) {
       case ADMIN -> Role.FROM_ADMIN;
@@ -63,13 +72,5 @@ public enum Authority {
       case USER -> Role.FROM_USER;
       case VISITOR -> Role.FROM_VISITOR;
     };
-  }
-  public static int roles(Role[] roles) {
-    List<Role> list = Arrays.asList(roles);
-    if (list.contains(Role.ADMIN)) return ALL_AUTHORITY;
-    if (list.contains(Role.MAINTENER)) return CREATE_ROLE + READ_ROLE + UPDATE_ROLE;
-    if (list.contains(Role.STAFF)) return READ_ROLE + UPDATE_ROLE;
-    if (list.contains(Role.USER) || list.contains(Role.VISITOR)) return READ_ROLE;
-    return 0;
   }
 }

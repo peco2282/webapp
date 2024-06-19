@@ -61,6 +61,7 @@ public class User implements IEntity<User> {
   public Authority[] authorities() {
     return Authority.of(authority);
   }
+
   public String[] authoritiesAsStringArray() {
     Authority[] authorities = authorities();
     String[] auths = new String[authorities.length];
