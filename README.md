@@ -31,10 +31,10 @@
 ## ルートマップのソード
 [ユーザーのルートコントローラー](/src/main/kotlin/com/github/peco2282/webapp/UserRouteController.kt)
 - ユーザー登録, 更新, 他ユーザーの閲覧<br/>
+
 [投票関係のルートコントローラー](/src/main/kotlin/com/github/peco2282/webapp/VoteRouteController.kt) (作成途中)
 
 [APIのルートコントローラー](/src/main/kotlin/com/github/peco2282/webapp/api/RestCotroller.kt)
 
 ## TODO
-- APIのPOST, DELETE通信対応
-- ユーザー更新フォーム、token作成
+[TODO](/TODO.md)

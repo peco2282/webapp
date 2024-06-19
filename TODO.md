@@ -1,0 +1,2 @@
+- APIのPOST, DELETE通信対応
+- ユーザー更新フォーム、token作成
