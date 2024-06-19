@@ -6,12 +6,12 @@
 
 ### フレームワーク
 #### メイン
-- Spring Framework
-   L Actuator
-   L OAuth2
-   L JDBC
-   L Web
-   L Rest
+- Spring Framework<br/>
+   L Actuator<br/>
+   L OAuth2<br/>
+   L JDBC<br/>
+   L Web<br/>
+   L Rest<br/>
    L Security
 - Thymeleaf
 - MyBatis
