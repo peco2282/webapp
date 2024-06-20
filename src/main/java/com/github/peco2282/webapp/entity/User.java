@@ -3,26 +3,16 @@ package com.github.peco2282.webapp.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
 
 import java.util.StringJoiner;
 
 @Entity
-@Getter
-@EqualsAndHashCode
-@Data
-@ToString
 public class User implements IEntity<User> {
   @Id
   private Long id;
   private String name;
   private String password;
-  @ToString.Exclude
   private Integer role;
-  @ToString.Exclude
   private Integer authority;
 
   @NotNull
@@ -34,6 +24,57 @@ public class User implements IEntity<User> {
     user.role = role;
     user.authority = authority;
     return user;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public Integer getRole() {
+    return role;
+  }
+
+  public void setRole(Integer role) {
+    this.role = role;
+  }
+
+  public Integer getAuthority() {
+    return authority;
+  }
+
+  public void setAuthority(Integer authority) {
+    this.authority = authority;
+  }
+
+  @Override
+  public String toString() {
+    return new StringJoiner(", ", User.class.getSimpleName() + "[", "]")
+        .add("password='" + password + "'")
+        .add("name='" + name + "'")
+        .add("id=" + id)
+        .add("role=" + rolesAsString())
+        .add("authority=" + authoritiesAsString())
+        .toString();
   }
 
   public Role[] roles() {
@@ -49,8 +90,7 @@ public class User implements IEntity<User> {
     return roles;
   }
 
-  @ToString.Include(name = "roles")
-  public String roleAsString() {
+  public String rolesAsString() {
     StringJoiner joiner = new StringJoiner(", ", "[", "]");
     for (Role r : roles()) {
       joiner.add(r.name());
@@ -71,7 +111,6 @@ public class User implements IEntity<User> {
     return auths;
   }
 
-  @ToString.Include(name = "authorities")
   public String authoritiesAsString() {
     StringJoiner joiner = new StringJoiner(", ", "[", "]");
     for (Authority a : authorities()) {

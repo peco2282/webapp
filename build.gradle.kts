@@ -43,7 +43,9 @@ dependencies {
   implementation("org.springframework.security:spring-security-oauth2-jose")
 
   implementation("com.nimbusds:nimbus-jose-jwt:9.39")
-  implementation("org.projectlombok:lombok:1.18.28")
+  // Compile error when Gradle tasks`compileKotlin`
+  // ex: Cannot access 'name': it is private in 'User'
+//  implementation("org.projectlombok:lombok:1.18.28")
 
   implementation("org.springframework.boot:spring-boot-starter-jdbc")
   implementation("org.springframework.boot:spring-boot-starter-web")
