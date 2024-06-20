@@ -40,10 +40,11 @@ class BearerAuthorizationFilter(manager: AuthenticationManager) : BearerTokenAut
 
         val subject = JWT.decode(base).subject
         if (subject != "peco2282") throw object : AuthenticationException("content is invalid") {}
+        request.authenticate(response)
         filterChain.doFilter(request, response)
 
       }
-    } else super.doFilterInternal(request, response, filterChain)
-//    else filterChain.doFilter(request, response)
+    } // else super.doFilterInternal(request, response, filterChain)
+    else filterChain.doFilter(request, response)
   }
 }

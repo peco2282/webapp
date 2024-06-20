@@ -61,10 +61,10 @@ class WebappApplicationTests(@Autowired wac: WebApplicationContext) {
 
   @Test
   fun contextLoads() {
-    val user = mapper.selectById(1)
-    if (user != null) {
+    val user = mapper.selectByRoleId(1)
+    if (user.isNotEmpty()) {
       println(user)
-      assertArrayEquals(user.roles(), Role.entries.toTypedArray())
+      assertArrayEquals(user[0].roles(), Role.entries.toTypedArray())
     }
   }
 
@@ -73,7 +73,7 @@ class WebappApplicationTests(@Autowired wac: WebApplicationContext) {
     println("Before")
     val before = mapper.selectByRoleId(2)
     println(before)
-    mapper.addUser(User.from(0, "user1", "pass", 2))
+    mapper.addUser(User.from(0, "user1", "pass", 2, 0))
     println("After")
     val after = mapper.selectByRoleId(2)
     println(after)
