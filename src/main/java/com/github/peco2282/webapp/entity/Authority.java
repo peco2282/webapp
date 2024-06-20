@@ -12,6 +12,7 @@ public enum Authority {
   READ(Role.VISITOR, 2),
   UPDATE(Role.MAINTENER, 3),
   DELETE(Role.MAINTENER, 4);
+  // CRUD roles
   public static final int CREATE_ROLE = 1 << 1;
   public static final int READ_ROLE = 1 << 2;
   public static final int UPDATE_ROLE = 1 << 3;

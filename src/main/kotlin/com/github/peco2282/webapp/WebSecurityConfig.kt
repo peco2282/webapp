@@ -19,9 +19,14 @@ import org.springframework.security.web.SecurityFilterChain
 
 typealias WebUser = org.springframework.security.core.userdetails.User
 
+/**
+ * Security Configuration
+ *
+ * @author peco2282
+ */
 @Configuration
 @EnableWebSecurity
-class WebSecurityConfig {
+class WebSecurityConfig(private val mapper: UserMapper) { // Autowired UserMapper
 //  @Bean
 //  fun jwtDecoder(): JwtDecoder {
 //    val jwtDecoder = NimbusJwtDecoder.withJwkSetUri("").build()
@@ -33,10 +38,20 @@ class WebSecurityConfig {
 //    return jwtDecoder
 //  }
 
-  @Autowired
-  lateinit var mapper: UserMapper
 
-
+  /**
+   * /api/\*\*     Require Bearer token.
+   *
+   * /login        Anyone can permit.
+   *
+   * /users/\*\*   Anyone can permit, but /users/create can access only no account.
+   *
+   * /vote/\*\*    Authenticated user can access.
+   *
+   * @see BearerAuthorizationManager
+   * @see bearerAuthorizationFilter
+   *
+   */
   @Bean
   @Throws(Exception::class)
   fun securityFilterChain(http: HttpSecurity, manager: AuthenticationManager): SecurityFilterChain {
@@ -47,7 +62,6 @@ class WebSecurityConfig {
           .requestMatchers("/api/**").access(BearerAuthorizationManager())
           .requestMatchers("/login").permitAll()
           .requestMatchers("/users/**").permitAll()
-          .requestMatchers("/vote/**").permitAll()
           .requestMatchers("/users/create").anonymous()
           .anyRequest().authenticated()
       }
@@ -81,6 +95,11 @@ class WebSecurityConfig {
     return http.build()
   }
 
+  /**
+   * Bean for securityFilterChain
+   *
+   * @see securityFilterChain
+   */
   @Bean
   @Throws(Exception::class)
   fun authenticationManager(authenticationConfiguration: AuthenticationConfiguration): AuthenticationManager =
@@ -93,7 +112,9 @@ class WebSecurityConfig {
     l.forEach {
       list += WebUser.builder()
         .passwordEncoder(AuthConstant.PASSWORD_ENCODER) // .withDefaultPasswordEncoder()
+        // Cannot access 'name': it is private in 'User'
         .username(it.name)
+        // Cannot access 'password': it is private in 'User'
         .password(it.password)
         .roles(*it.rolesAsStringArray())
         .build()
